@@ -1,0 +1,36 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<div class="container my-4">
+    <div class="card shadow-lg" style="border-radius: 10px; background-color: rgba(255, 255, 255, 0.8);">
+        <div class="card-header text-center" style="background:#0B192C; color: white;">
+            <h2 class="font-weight-bold">Editar Pedido</h2>
+        </div>
+        <div class="card-body">
+            <form action="/pedidos/update" method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Número do Pedido:</label>
+                    <input class="form-control" type="text" name="numero" id="numero" value="<%= pedido.numero %>" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Nome do cliente:</label>
+                    <input class="form-control" type="text" name="nome" id="nome" value="<%= pedido.nome %>" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Valor do Pedido:</label>
+                    <input class="form-control" type="text" name="valor" id="valor" value="<%= pedido.valor %>" required>
+                </div>
+
+                <input type="hidden" name="id" value="<%= pedido.id %>">
+                
+                <div class="text-center">
+                    <input type="submit" class="btn" style="background-color: #FF6500; color:white" value="Alterar" onclick="return confirm('Confirma as alterações para o pedido <%= pedido.numero %>?')">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>
