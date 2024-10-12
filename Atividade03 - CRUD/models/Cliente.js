@@ -1,9 +1,10 @@
-//ORM - Sequelize
+// ORM - Sequelize - Importando o Sequelize
 import { Sequelize } from "sequelize";
-//Configuração do Sequelize
+
+// Configuração do Sequelize
 import connection from "../config/sequelize-config.js";
  
-//.define cria a tabela no banco
+// .define cria a tabela no banco
 const Cliente = connection.define("clientes", {
   nome: {
     type: Sequelize.STRING,
@@ -18,7 +19,8 @@ const Cliente = connection.define("clientes", {
     allowNull: false,
   },
 });
-//não forçar a criação da tabela caso ela já exista
+
+// Não forçar a criação da tabela caso ela já exista
 Cliente.sync({ force: false });
 export default Cliente;
  
