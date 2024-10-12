@@ -1,11 +1,9 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Configurações gerais */
 body {
     font-family: 'Arial', sans-serif;
     background: url('/imgs/Deftones.png') no-repeat center center fixed;
@@ -13,91 +11,74 @@ body {
     position: relative;
 }
 
-
-
 .container {
-    position: relative; /* Necessário para o z-index funcionar */
-    z-index: 2; /* Garante que o conteúdo esteja acima da sobreposição */
+    position: relative;
+    z-index: 2;
 }
 
-/* Estilo para a jumbotron */
 .jumbotron {
-    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     padding: 30px;
 }
 
-/* Estilos para o cartão */
 .card {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Cabeçalho do cartão */
 .card-header {
     
     color: white;
     text-align: center;
-    border-radius: 15px 15px 0 0; /* Canto arredondado */
+    border-radius: 15px 15px 0 0;
 }
 
-/* Lista de grupos */
 .list-group-item {
-    background-color: rgba(255, 255, 255, 0.9); /* Branco levemente transparente */
+    background-color: rgba(255, 255, 255, 0.9);
     transition: background-color 0.3s ease;
 }
 
-/* Efeito hover para lista */
 .list-group-item:hover {
-    background-color: rgba(0, 123, 255, 0.2); /* Muda a cor no hover */
+    background-color: rgba(0, 123, 255, 0.2);
 }
 
-/* Formulários */
 .form-control {
-    width: 200px; /* Tamanho padrão */
-    transition: width 0.4s ease-in-out; /* Animação ao focar */
+    width: 200px;
+    transition: width 0.4s ease-in-out;
 }
 
 .form-control:focus {
-    width: 300px; /* Expande ao focar */
+    width: 300px;
     border-radius: 10px;
 }
 
-/* Estilo do botão */
 .btn {
     transition: background-color 0.3s, transform 0.3s;
     border-radius: 10px;
     width: 100%;
 }
 
-/* Efeito hover para botões */
-
-
-/* Estilo do rodapé */
 footer {
     text-align: center;
 }
 
-/* Listas */
 ul {
     list-style: square;
     line-height: 30px;
 }
 
-/* Estilo para links */
 a {
     color: #0ba7c6;
     text-decoration: none;
     padding: 20px;
 }
 
-/* Estilo para tabela */
 th, td {
     padding: 10px;
 }
 
-/* Estilo do botão info */
 .btn-info {
     background-color: #FF6500;
     border-color: #FF6500;
@@ -123,9 +104,9 @@ body {
 }
 
 .container {
-    flex: 1; /* Isso garante que o contêiner expanda para preencher o espaço disponível */
+    flex: 1;
 }
 
 footer {
-    margin-top: auto; /* Garante que o footer fique no fundo */
+    margin-top: auto;
 }
