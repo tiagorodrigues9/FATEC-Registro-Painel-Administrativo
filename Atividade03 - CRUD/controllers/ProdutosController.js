@@ -1,9 +1,11 @@
 import express from "express";
+
 const router = express.Router();
-//IMPORTANDO O MODEL DO PRODUTO
+
+//Importando o Produto da pasta Model
 import Produto from "../models/Produto.js";
  
-// ROTA PRODUTOS
+// Rota Produtos
 router.get("/produtos", function (req, res) {
     Produto.findAll().then(produtos => {
   res.render("produtos", {
@@ -11,9 +13,11 @@ router.get("/produtos", function (req, res) {
   });
 });
 });
-// ROTA DE CADASTRO DE PRODUTOS
+
+// Rota de cadastro de produtos
 router.post("/produtos/new",(req,res) => {
-    // RECEBENDO OS DADOS DO FORMULARIO E GRAVANDO NAS VARIÁVEIS
+ 
+    // Recebendo os dados e gravando nas variáveis
     const nome = req.body.nome
     const preco = req.body.preco
     const categoria = req.body.categoria
@@ -25,12 +29,15 @@ router.post("/produtos/new",(req,res) => {
         res.redirect("/produtos")
     })
 })
-// ROTA DE EXCLUSAO DE PRODUTO
-// ESSA ROTA POSSUI UM PARÂMETRO ID
+
+// Rota de exclusão de produtos
+// Essa rota possui um parâmetro ID
 router.get("/produtos/delete/:id", (req,res) => {
-    // COLETAR O ID QUE VEIO DA URL
+ 
+    // Coletar o ID que veio da URL
     const id = req.params.id
-    // METODO PARA EXCLUIR
+ 
+    // Método para excluir
     Produto.destroy({
         where: {
             id : id
@@ -42,7 +49,7 @@ router.get("/produtos/delete/:id", (req,res) => {
     })
 })
 
-// rota de edicao de produto
+// Rota de edição de produtos
 router.get("/produtos/edit/:id", (req, res) => {
     const id = req.params.id;
     Produto.findByPk(id).then((produto) => {
@@ -52,7 +59,7 @@ router.get("/produtos/edit/:id", (req, res) => {
     })
   });
   
-  // ROTA DE ALTERAÇÃO DE PRODUTO
+  // Rota de alteração de produtos
   router.post("/produtos/update/", (req, res) => {
       const id = req.body.id
       const nome = req.body.nome
@@ -70,7 +77,8 @@ router.get("/produtos/edit/:id", (req, res) => {
           console.log(error)
       })
   })
- 
+
+// Todos devem ser exportados
 export default router;
  
 
