@@ -1,9 +1,11 @@
 import express from "express";
+
 const router = express.Router();
-//IMPORTANDO O MODEL DO PEDIDO
+
+// Importando Pedido do Model
 import Pedido from "../models/Pedido.js";
  
-// ROTA PEDIDOS
+// Rota Pedidos
 router.get("/pedidos", function (req, res) {
     Pedido.findAll().then(pedidos => {
   res.render("pedidos", {
@@ -11,9 +13,11 @@ router.get("/pedidos", function (req, res) {
   });
 });
 });
-// ROTA DE CADASTRO DE PEDIDOS
+
+// Rota de Cadastro de Clientes
 router.post("/pedidos/new",(req,res) => {
-    // RECEBENDO OS DADOS DO FORMULARIO E GRAVANDO NAS VARIÁVEIS
+ 
+    // Recebendo os dados do formulário e gravando nas variáveis
     const numero = req.body.numero
     const nome = req.body.nome
     const valor = req.body.valor
@@ -25,12 +29,15 @@ router.post("/pedidos/new",(req,res) => {
         res.redirect("/pedidos")
     })
 })
-// ROTA DE EXCLUSAO DE PEDIDO
-// ESSA ROTA POSSUI UM PARÂMETRO ID
+
+// Rota de exclusão de pedidos
+// Essa rota possui um parâmetro ID
 router.get("/pedidos/delete/:id", (req,res) => {
-    // COLETAR O ID QUE VEIO DA URL
+ 
+    // Coletar o ID que veio da URL
     const id = req.params.id
-    // METODO PARA EXCLUIR
+ 
+    // Método para excluir
     Pedido.destroy({
         where: {
             id : id
@@ -42,8 +49,9 @@ router.get("/pedidos/delete/:id", (req,res) => {
     })
 })
  
-// rota de edicao de PEDIDO
+// Rota de edição de pedidos
 router.get("/pedidos/edit/:id", (req, res) => {
+ 
     const id = req.params.id;
     Pedido.findByPk(id).then((pedido) => {
       res.render("pedidoEdit", { pedido : pedido });
@@ -52,8 +60,9 @@ router.get("/pedidos/edit/:id", (req, res) => {
     })
   });
   
-  // ROTA DE ALTERAÇÃO DE PEDIDO
+  // Rota de alteração de pedidos
   router.post("/pedidos/update/", (req, res) => {
+   
       const id = req.body.id
       const numero = req.body.numero
       const nome = req.body.nome
@@ -70,6 +79,8 @@ router.get("/pedidos/edit/:id", (req, res) => {
           console.log(error)
       })
   })
+
+// Todos devem ser exportados
 export default router;
  
 
