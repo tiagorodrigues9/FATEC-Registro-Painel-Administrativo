@@ -1,9 +1,10 @@
-//ORM - Sequelize
+// ORM - Sequelize - Importando o Sequelize
 import { Sequelize } from "sequelize";
-//Configuração do Sequelize
+
+// Configuração do Sequelize
 import connection from "../config/sequelize-config.js";
  
-//.define cria a tabela no banco
+// .define cria a tabela no banco
 const Pedido = connection.define("pedidos", {
   numero: {
     type: Sequelize.INTEGER,
@@ -20,7 +21,8 @@ const Pedido = connection.define("pedidos", {
     allowNull: false,
   },
 });
-//não forçar a criação da tabela caso ela já exista
+
+// Não forçar a criação da tabela caso ela já exista
 Pedido.sync({ force: false });
 export default Pedido;
  
