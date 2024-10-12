@@ -1,9 +1,13 @@
+// Importando o Express
 import express from "express";
+
+// Declarando o Router do Express
 const router = express.Router();
-//IMPORTANDO O MODEL DO CLIENTE
+
+// Importando o Cliente da pasta Model
 import Cliente from "../models/Cliente.js";
  
-// ROTA CLIENTES
+// Rota Clientes
 router.get("/clientes", function (req, res) {
   Cliente.findAll().then((clientes) => {
     res.render("clientes", {
@@ -12,12 +16,14 @@ router.get("/clientes", function (req, res) {
   });
 });
  
-//rota de cadastro de clientes
+// Rota de Cadastro de clientes
 router.post("/clientes/new", (req, res) => {
-  //recebendo os dados do formulario e gravando nas variaveis
+ 
+  // Recebendo os dados do formulario e gravando nas variáveis
   const nome = req.body.nome;
   const cpf = req.body.cpf;
   const endereco = req.body.endereco;
+ 
   Cliente.create({
     nome: nome,
     cpf: cpf,
@@ -28,12 +34,14 @@ router.post("/clientes/new", (req, res) => {
   });
 });
  
-//Rota de exclusao
-//essa rota possui um parametro ID
+// Rota de exclusão de clientes
+// Essa rota possui um parametro ID
 router.get("/clientes/delete/:id", (req, res) => {
-  //coletar o id que veio na url
+ 
+  // Coletar o id que veio na URL
   const id = req.params.id;
-  //metodo para excluir
+ 
+  // Método para excluir registros
   Cliente.destroy({
     where: {
       id: id,
@@ -47,9 +55,11 @@ router.get("/clientes/delete/:id", (req, res) => {
     });
 });
  
-// rota de edicao de cliente
+// Rota de edição de clientes
 router.get("/clientes/edit/:id", (req, res) => {
+ 
   const id = req.params.id;
+ 
   Cliente.findByPk(id).then((cliente) => {
     res.render("clienteEdit", { cliente: cliente });
   }).catch((error) =>{
@@ -57,7 +67,7 @@ router.get("/clientes/edit/:id", (req, res) => {
   })
 });
 
-// ROTA DE ALTERAÇÃO DE CLIENTE
+// Rota de alteração de clientes
 router.post("/clientes/update/", (req, res) => {
     const id = req.body.id
     const nome = req.body.nome
@@ -75,6 +85,8 @@ router.post("/clientes/update/", (req, res) => {
         console.log(error)
     })
 })
+
+// Todos devem ser exportados
 export default router;
  
  
