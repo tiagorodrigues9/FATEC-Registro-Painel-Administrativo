@@ -2,7 +2,6 @@
 <%- include ('partials/navbar.ejs') %>
 
 <div class="container my-4">
-    <!-- Formulário de Cadastro de Clientes -->
     <div class="card shadow-lg" style="border-radius: 10px; background-color: rgba(255, 255, 255, 0.8);">
         <div class="card-header text-center" style="background-color: #0B192C; color: white;">
             <h2>Cadastrar Cliente</h2>
@@ -13,23 +12,19 @@
                     <label for="nome" class="form-label">Nome do Cliente:</label>
                     <input type="text" name="nome" id="nome" placeholder="Insira o nome do Cliente" class="form-control" required>
                 </div>
-
                 <div class="mb-3">
                     <label for="cpf" class="form-label">CPF do Cliente:</label>
                     <input type="text" name="cpf" id="cpf" placeholder="Insira o CPF do Cliente" class="form-control" required>
                 </div>
-
                 <div class="mb-3">
                     <label for="endereco" class="form-label">Endereço do Cliente:</label>
                     <input type="text" name="endereco" id="endereco" placeholder="Insira o endereço do Cliente" class="form-control" required>
                 </div>
-
                 <input type="submit" class="btn btn-success" style="background-color: #FF6500;" value="Cadastrar Cliente">
             </form>
         </div>
     </div>
 
-    <!-- Tabela de Clientes -->
     <div class="card shadow-lg my-4" style="border-radius: 10px; background-color: rgba(255, 255, 255, 0.8);">
         <div class="card-header text-center" style="background-color: #0B192C; color: white;">
             <h2>Lista de Clientes</h2>
