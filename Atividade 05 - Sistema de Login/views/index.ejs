@@ -1,0 +1,46 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<div class="container my-5">
+    <% if (messages.success) { %>
+        <div class="alert alert-success text-center" style="border-radius: 5px; background-color: #DFF2BF; color: #4F8A10;">
+            <%= messages.success %>
+        </div>
+    <% } %>
+
+    <!-- Jumbotron de Boas-vindas -->
+    <div class="jumbotron text-center mt-4" style="background-color: rgba(255, 255, 255, 0.9); padding: 2rem; border-radius: 10px;">
+        <h1 class="display-4 font-weight-bold">Bem-vindo(a) ao painel administrativo Rodrigues Music!</h1>
+        <p class="lead">Através deste painel, você pode gerenciar as tabelas de clientes, produtos e pedidos.</p>
+        <hr class="my-4">
+        <p class="currentDate"></p>
+        <a class="btn btn-info btn-lg mt-3" style="color: white;" href="/pedidos" role="button">Verificar pedidos</a>
+    </div>
+
+    <hr class="my-5">
+
+    <!-- Cartão de Navegação -->
+    <div class="card shadow-lg" style="border-radius: 10px;">
+        <div class="card-header text-white text-center" style="background-color: #0B192C;">
+            <h2 class="mb-0">Para onde deseja ir?</h2>
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <a class="text-decoration-none" href="/">🏠 Home</a>
+                </li>
+                <li class="list-group-item">
+                    <a class="text-decoration-none" href="/clientes">👥 Clientes</a>
+                </li>
+                <li class="list-group-item">
+                    <a class="text-decoration-none" href="/produtos">🎸 Produtos</a>
+                </li>
+                <li class="list-group-item">
+                    <a class="text-decoration-none" href="/pedidos">🛒 Pedidos</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

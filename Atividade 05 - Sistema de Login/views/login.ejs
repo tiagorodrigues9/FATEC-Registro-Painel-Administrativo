@@ -1,0 +1,38 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<div class="container col-lg-4 col-md-6 col-sm-8 my-4">
+    <% if (messages.danger) { %>
+        <div class="alert alert-danger text-center" style="border-radius: 5px; background-color: #FFCCD5; color: #D32F2F;">
+            <%= messages.danger %>
+        </div>
+    <% } %>
+
+    <div class="card shadow-lg" style="border-radius: 10px; background-color: rgba(255, 255, 255, 0.8);">
+        <div class="card-header text-center" style="background-color: #0B192C; color: white;">
+            <h2>Login de Administrador</h2>
+        </div>
+        <div class="card-body">
+            <p class="text-center" style="color: #D32F2F; font-size: 0.9em;">
+                Você precisa estar logado para acessar os recursos do painel.
+            </p>
+            <form action="/authenticate" method="POST">
+                <div class="mb-3">
+                    <label for="email" class="form-label">E-mail:</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="email@exemplo.com" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Senha:</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Insira sua senha" required>
+                </div>
+                <input type="submit" class="btn btn-success w-100" style="background-color: #FF6500;" value="Entrar">
+            </form>
+            <hr>
+            <h6 class="text-center">
+                Não possui conta? <a href="/cadastro" style="color: #FF6500;">Cadastre-se!</a>
+            </h6>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

@@ -1,0 +1,35 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<div class="container my-4">
+    <!-- Alerta de Mensagem -->
+    <% if (messages.danger) { %>
+        <div class="alert alert-danger text-center" style="border-radius: 5px; background-color: #FFCCD5; color: #D32F2F;">
+            <%= messages.danger %>
+        </div>
+    <% } %>
+
+    <!-- Formulário de Cadastro de Usuário -->
+    <div class="card shadow-lg mt-4" style="border-radius: 10px; background-color: rgba(255, 255, 255, 0.8);">
+        <div class="card-header text-center" style="background-color: #0B192C; color: white;">
+            <h2>Cadastro de Usuário</h2>
+        </div>
+        <div class="card-body">
+            <form action="/createUser" method="POST">
+                <div class="mb-3">
+                    <label for="email" class="form-label">E-mail:</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="email@exemplo.com" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Senha:</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Insira uma senha com no mínimo 8 caracteres" required>
+                </div>
+                <input type="submit" class="btn btn-success w-100" style="background-color: #FF6500;" value="Cadastrar">
+            </form>
+            <hr>
+            <h6 class="text-center">Já possui conta? <a href="/login" style="color: #FF6500;">Faça o login!</a></h6>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>
